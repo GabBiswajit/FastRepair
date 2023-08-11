@@ -1,0 +1,12 @@
+name: FastRepair
+author: mercurypl
+main: mercurypl\FastRepair
+api: 5.0.0
+version: 1
+permission:
+ fix-all.use:
+  default: OP
+ fix-hand.use:
+  default: OP
+ fix-all-others.use:
+  default: OP
