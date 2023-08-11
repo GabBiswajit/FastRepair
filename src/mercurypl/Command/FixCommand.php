@@ -1,7 +1,5 @@
 <?php
-namespace mercurypl\Commands;
-
-
+namespace mercurypl\Command;
 
 use mercurypl\FastRepair;
 use pocketmine\command\Command;
