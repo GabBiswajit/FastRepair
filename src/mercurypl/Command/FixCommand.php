@@ -14,13 +14,13 @@ class FixCommand extends Command {
     public function __construct()
     {
         parent::__construct("fix","Fix your inventory or the item what you are holding.",null,["repair"]);
-        $this->setPermission('fix-all.use');
+        $this->setPermission('FastRepair.fix-all.use');
     }
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
         if ($sender instanceof Player){
             $file = FastRepair::getConfiguration("messages.yml");
-            if ($sender->hasPermission("fix-all.use") or $sender->hasPermission("fix-all-others.use") or $sender->hasPermission("fix-all-others.use")){
+            if ($sender->hasPermission("FastRepair.fix-all.use") || $sender->hasPermission("FastRepair.fix-all-others.use") || $sender->hasPermission("FastRepair.fix-all-others.use")){
                 $hold = $sender->getInventory()->getItemInHand();
                 if (empty($args)){
                     $msg = TextFormat::colorize($file->get("fix-usage"));
