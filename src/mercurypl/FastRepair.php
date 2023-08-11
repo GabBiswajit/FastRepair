@@ -2,7 +2,7 @@
 
 namespace mercurypl;
 
-use mercurypl\Commands\FixCommand;
+use mercurypl\Command\FixCommand;
 use pocketmine\permission\DefaultPermissions;
 use pocketmine\permission\Permission;
 use pocketmine\permission\PermissionManager;
