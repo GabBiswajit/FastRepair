@@ -20,7 +20,7 @@ class FixCommand extends Command {
     {
         if ($sender instanceof Player){
             $file = FastRepair::getConfiguration("messages.yml");
-            if ($sender->hasPermission("FastRepair.fix-all.use") || $sender->hasPermission("FastRepair.fix-all-others.use") || $sender->hasPermission("FastRepair.fix-all-others.use")){
+            if ($sender->hasPermission("FastRepair.fix-all.use")  $sender->hasPermission("FastRepair.fix-all-others.use")  $sender->hasPermission("FastRepair.fix-all-others.use")){
                 $hold = $sender->getInventory()->getItemInHand();
                 if (empty($args)){
                     $msg = TextFormat::colorize($file->get("fix-usage"));
