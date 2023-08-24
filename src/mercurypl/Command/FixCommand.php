@@ -14,13 +14,13 @@ class FixCommand extends Command {
     public function __construct()
     {
         parent::__construct("fix","Fix your inventory or the item what you are holding.",null,["repair"]);
-        $this->setPermission('fix-all.use','fix-hand.use','fix-all-others.use');
+        $this->setPermission('FastRepair.fix-all.use','FastRepair.fix-hand.use','FastRepair.fix-all-others.use');
     }
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
         if ($sender instanceof Player){
             $file = FastRepair::getConfiguration("messages.yml");
-            if ($sender->hasPermission("fix-all.use") or $sender->hasPermission("fix-all-others.use") or $sender->hasPermission("fix-all-others.use")){
+            if ($sender->hasPermission("FastRepair.fix-all.use") or $sender->hasPermission("FastRepair.fix-all-others.use") or $sender->hasPermission("FastRepair.fix-all-others.use")){
                 $hold = $sender->getInventory()->getItemInHand();
                 if (empty($args)){
                     $msg = TextFormat::colorize($file->get("fix-usage"));
@@ -29,7 +29,7 @@ class FixCommand extends Command {
                 }
                 switch ($args[0]){
                     case "hand":
-                        if ($sender->hasPermission("fix-hand.use")){
+                        if ($sender->hasPermission("FastRepair.fix-hand.use")){
                             if ($hold instanceof Armor or $hold instanceof Tool){
                                 if($hold->getDamage() > 0){
                                     $sender->getInventory()->setItemInHand($hold->setDamage(0));
@@ -49,7 +49,7 @@ class FixCommand extends Command {
                         break;
                     case "all":
                         if (empty($args[1])){
-                            if ($sender->hasPermission("fix-all.use")) {
+                            if ($sender->hasPermission("FastRepair.fix-all.use")) {
                                 foreach ($sender->getInventory()->getContents() as $index => $item) {
                                     if ($item instanceof Armor or $item instanceof Tool) {
                                         if ($item->getDamage() > 0) {
@@ -72,7 +72,7 @@ class FixCommand extends Command {
                             $sender->sendMessage($msg);
                             return FALSE;
                         }
-                        if ($sender->hasPermission("fix-all-others.use")){
+                        if ($sender->hasPermission("FastRepair.fix-all-others.use")){
                             $player = FastRepair::getInstance()->getServer()->getPlayerByPrefix($args[1]);
                             if (is_null($player)){
 
