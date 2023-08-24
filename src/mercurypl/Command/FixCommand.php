@@ -14,7 +14,7 @@ class FixCommand extends Command {
     public function __construct()
     {
         parent::__construct("fix","Fix your inventory or the item what you are holding.",null,["repair"]);
-        $this->setPermission('fix-all.use');
+        $this->setPermission('fix-all.use','fix-hand.use','fix-all-others.use');
     }
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
