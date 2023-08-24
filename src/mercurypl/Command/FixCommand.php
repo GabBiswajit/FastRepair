@@ -117,5 +117,4 @@ class FixCommand extends Command {
             $msg = TextFormat::colorize($file->get("non-permission"));
             $sender->sendMessage($msg);
         }
-    }
 }
